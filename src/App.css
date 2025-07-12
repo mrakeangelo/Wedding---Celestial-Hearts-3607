@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f0f23;
+  color: #f7e7ce;
+  overflow-x: hidden;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 27, 62, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.8);
+}
+
+/* Starfield background */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(74, 20, 140, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(102, 51, 153, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 40% 80%, rgba(45, 27, 105, 0.3) 0%, transparent 50%),
+              #0f0f23;
+  z-index: -1;
+}
+
+/* Floating particles */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #f7e7ce;
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star:nth-child(odd) {
+  animation-delay: 1s;
+}
+
+.star:nth-child(even) {
+  animation-delay: 2s;
+}
+
+/* Glow effects */
+.glow {
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+.moon-glow {
+  filter: drop-shadow(0 0 20px rgba(247, 231, 206, 0.6));
+}
+
+/* Constellation lines */
+.constellation-line {
+  stroke: rgba(212, 175, 55, 0.3);
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 5,5;
+  animation: constellation 4s ease-in-out infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .star {
+    width: 1px;
+    height: 1px;
+  }
+}
+
+/* Form styles */
+.cosmic-input {
+  background: rgba(26, 27, 62, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #f7e7ce;
+  transition: all 0.3s ease;
+}
+
+.cosmic-input:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  outline: none;
+}
+
+.cosmic-button {
+  background: linear-gradient(135deg, #663399, #4a148c);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #f7e7ce;
+  transition: all 0.3s ease;
+}
+
+.cosmic-button:hover {
+  background: linear-gradient(135deg, #4a148c, #663399);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Loading animations */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(212, 175, 55, 0.3);
+  border-top: 3px solid #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
